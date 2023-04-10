@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
+    'jazzmin',             #djnago builtin Backend interface 
     'studentmanagement',          #installing app in project
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,3 +131,41 @@ STATICFILES_URL= [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+   # django-jazzmin backend content customizations 
+JAZZMIN_SETTINGS = {
+        # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title":"Student Management System",
+    "site_header":"Student",
+    "site_brand": "Student Management",   #this will remain the django adminstration
+        # Welcome text on the login screen
+    "welcome_sign": "Welcome to Student Management System",
+        # Copyright on the footer
+    "copyright": "Pk IT Institute",
+        #serach pannel 
+    "search_model": ["auth.Student"],
+
+    # Top Menu #
+    ############
+    # Links to put along the top menu
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+        # App with dropdown menu to all its models pages (Permissions checked against models)
+        {"app": "students"},
+       
+    ],
+
+    # Whether to show the UI customizer on the sidebar
+    "show_ui_builder": False,
+
+}
+
+
+   #back end UI 
+JAZZMIN_UI_TWEAKS = {
+    #"theme": "darkly",
+}

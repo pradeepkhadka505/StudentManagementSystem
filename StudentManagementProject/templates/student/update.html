@@ -1,0 +1,61 @@
+
+
+{% extends 'main-content.html'%}
+{% block content %}
+
+<div class="container tex-center">
+    <div class="row col-md-3 offset-md-3" style="margin-top: 10px" >
+        <!-- Button trigger modal -->
+        <button type="button"  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Update Student 
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Students </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!--- main form content in modal form -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!----- forms -->
+                                <form class="row g-3" action="/student/do-update-student/{{std.id}}" method="POST">
+                                     {% csrf_token %}
+                                    <div class="col-md-6">
+                                    <label for="inputRoll" class="form-label">Roll No</label>
+                                        <input type="text" name="std_roll" value="{{std.roll}}" required class="form-control" id="inputRoll">
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label for="inputName" class="form-label">Full name</label>
+                                        <input type="text" name="std_name" value="{{std.name}}" required  class="form-control" id="inputName">
+                                    </div>
+                                    <div class="col-12">
+                                    <label for="inputAddress" class="form-label">Address</label>
+                                        <input type="text" name="std_address" value="{{std.address}}" required  class="form-control" id="inputAddress" placeholder="Address">
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label for="inputPhone" class="form-label">Phone</label>
+                                        <input type="text" name="std_phone" value="{{std.phone}}" required  class="form-control" id="inputPhone" placeholder="Phone">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputEmail" class="form-label">Email</label>
+                                        <input type="text" name='std_email' value="{{std.email}}" required  class="form-control" id="inputEmail"  placeholder="Email">
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary ">Update Student </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                        <!---- modal footer add here -->
+                </div>
+            </div>
+        </div>   
+    </div>
+<div>
+  
+{% endblock %}

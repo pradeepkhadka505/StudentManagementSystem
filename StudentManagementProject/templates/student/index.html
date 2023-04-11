@@ -2,11 +2,59 @@
 {% extends 'main-content.html'%}
   {% block content %}
 
-  <div class="container-fluid">
+  <div class="container" >
+    <div class="row col-sm-3 offset-md-3" style="margin-top: 10px">
+        <h4> List of all Students </h4>
 
-    <div class="row">
-        <h3> hello my name is pradeep  </h3>
+
+    </div>
+    <div class="row col-sm-9 offset-md-1" style="margin-top: 10px" >
+      
+      <table id="example" class="table table-striped bg-light" style="width:100%">
+        <thead>
+            <tr>
+                <th>S No</th>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Operations </th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for s in std %}
+            <tr>
+                <td> {{ forloop.counter }}</td>
+                <td> {{ s.roll }} </td>
+                <td> {{ s.name }} </td>
+                <td> {{ s.address }} </td>
+                <td> {{ s.phone }} </td>
+                <td>{{ s.email }} </td>
+                <td> 
+                  <a class ="btn btn-warning" href="/student/update-student/{{s.id}}"> Update </a>
+                  <a class ="btn btn-danger" href="/student/delete-student/{{s.id}}"> Delete </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            
+        
+        </tbody>
+        {% comment %} <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot> {% endcomment %}
+    </table>
+
     </div>
   </div>
+
   {% endblock %}
 

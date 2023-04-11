@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     
     'jazzmin',             #djnago builtin Backend interface 
-    'studentmanagement',          #installing app in project
+    'student',          #installing app in project
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,6 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 
@@ -136,7 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 JAZZMIN_SETTINGS = {
         # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title":"Student Management System",
-    "site_header":"Student",
+    "site_header":"Student Management",
     "site_brand": "Student Management",   #this will remain the django adminstration
         # Welcome text on the login screen
     "welcome_sign": "Welcome to Student Management System",
@@ -155,7 +156,7 @@ JAZZMIN_SETTINGS = {
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
         # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"app": "students"},
+        {"app": "Student"},
        
     ],
 
